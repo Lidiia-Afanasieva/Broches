@@ -52,28 +52,43 @@ public class Main {
         Collections.shuffle(white);//случайное перемешивание коллекции
         Collections.shuffle(black);
 
+        List<Object> list_1 = new ArrayList<Object>();
+        List<Object> list_2 = new ArrayList<Object>();
+        list_1 = white.subList(0, 7);
+        list_2 = white.subList(8, 15);
+
         System.out.println(white);
         System.out.println(black);
 
         for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 7; j++){
+                if (i == 0) {
+                    main_row[i][j] = list_1.get(j);
+                }
+                else {
+                    main_row[i][j] = list_2.get(j);
+                }
+            }
+        }
+
+        list_1 = black.subList(0, 8);
+        list_2 = black.subList(8, 16);
+        System.out.println("list_1 now = " + list_1);
+        System.out.println("___________________________");
+        System.out.println("list_2 now = " + list_2);
+
+        for (int i = 6; i < 8; i++) {
             for (int j = 0; j < 8; j++){
-                for (Object rank : white
-                    ) {
-                    main_row[i][j] = rank;
-
+                if (i == 6) {
+                    main_row[i][j] = list_1.get(j);
+                }
+                else {
+                    main_row[i][j] = list_2.get(j);
                 }
             }
         }
 
-        for (Object rank : black
-             ) {
-            for (int i = 6; i <= 7; i++) {
-                for (int j = 0; j < 8; j++){
-                    main_row[i][j] = rank;
-                }
-            }
-        }
-
+        System.out.println(main_row[1][1]);
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 System.out.print(main_row[i][j] + " ");
