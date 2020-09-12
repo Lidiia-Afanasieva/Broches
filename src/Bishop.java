@@ -1,10 +1,10 @@
 public class Bishop extends Main {
     public Bishop(String color){
-        if (color == "white"){
+        if (color.equals("white")){
             this.name = "W_Bishop";
             this.worth = 30;//МБ ПОНАДОБИТСЯ
         }
-        else if (color == "black"){
+        else if (color.equals("black")){
             this.name = "B_Bishop";
             this.worth = 30;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
         }

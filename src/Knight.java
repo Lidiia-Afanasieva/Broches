@@ -1,10 +1,10 @@
 public class Knight extends Main {
     public Knight(String color){
-        if (color == "white"){
+        if (color.equals("white")){
             this.name = "W_Knight";
             this.worth = 25;//МБ ПОНАДОБИТСЯ
         }
-        else if (color == "black"){
+        else if (color.equals("black")){
             this.name = "B_Knight";
             this.worth = 25;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
         }

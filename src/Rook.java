@@ -1,11 +1,11 @@
 public class Rook extends Main {
     public Rook(String color){
-        if (color == "white"){
-            this.name = "W_Rook";
+        if (color.equals("white")){
+            this.name = " W_Rook ";
             this.worth = 30;//МБ ПОНАДОБИТСЯ
         }
-        else if (color == "black"){
-            this.name = "B_Rook";
+        else if (color.equals("black")){
+            this.name = " B_Rook ";
             this.worth = 30;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
         }
     }

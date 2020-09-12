@@ -1,11 +1,11 @@
 public class Queen extends Main {
     public Queen(String color){
-        if (color == "white"){
-            this.name = "W_Queen";
+        if (color.equals("white")){
+            this.name = "W_Queen ";
             this.worth = 50;
         }
-        else if (color == "black"){
-            this.name = "B_Queen";
+        else if (color.equals("black")){
+            this.name = "B_Queen ";
             this.worth = 100000;
         }
     }

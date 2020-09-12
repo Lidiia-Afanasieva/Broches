@@ -1,11 +1,11 @@
 public class Pawn extends Main {
     public Pawn(String color){
-        if (color == "white"){
-            this.name = "W_Pawn";
+        if (color.equals("white")){
+            this.name = " W_Pawn ";
             this.worth = 10;//МБ ПОНАДОБИТСЯ
         }
-        else if (color == "black"){
-            this.name = "B_Pawn";
+        else if (color.equals("black")){
+            this.name = " B_Pawn ";
             this.worth = 10;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
         }
     }

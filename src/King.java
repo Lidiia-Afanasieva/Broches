@@ -1,11 +1,11 @@
 public class King extends Main {
     public King(String color){
-        if (color == "white"){
-            this.name = "W_King";
+        if (color.equals("white")){
+            this.name = " W_King ";
             this.worth = 100000;//МБ ПОНАДОБИТСЯ
         }
-        else if (color == "black"){
-            this.name = "B_King";
+        else if (color.equals("black")){
+            this.name = " B_King ";
             this.worth = 0;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
         }
     }

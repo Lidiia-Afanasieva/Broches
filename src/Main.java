@@ -1,8 +1,12 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Main {
+
     public int x;
     public int y;
     public String color;
@@ -10,10 +14,14 @@ public class Main {
     public int whitePoint;
     public int blackPoint;
     public int worth;
-    public static Object[][] main_row = new Object[8][9];
-    public static void main(String[] args) {
-        List<Object> white = new ArrayList<Object>(16);
-        List<Object> black = new ArrayList<Object>(16);
+    public static Main[][] main_row = new Main[8][9];
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        List<Main> white = new ArrayList<>(16);
+        List<Main> black = new ArrayList<>(16);
 
         King WKing = new King("white");
         white.add(WKing);
@@ -52,46 +60,67 @@ public class Main {
         Collections.shuffle(white);//случайное перемешивание коллекции
         Collections.shuffle(black);
 
-        List<Object> list_1 = new ArrayList<Object>();
-        List<Object> list_2 = new ArrayList<Object>();
-        list_1 = white.subList(0, 7);
-        list_2 = white.subList(8, 15);
-
-        System.out.println(white);
-        System.out.println(black);
+        List<Main> list_1 = new ArrayList<>();
+        List<Main> list_2 = new ArrayList<>();
+        list_1 = white.subList(0, 8);
+        list_2 = white.subList(8, 16);
 
         for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 7; j++){
+            for (int j = 0; j <= 7; j++){
                 if (i == 0) {
                     main_row[i][j] = list_1.get(j);
+                    main_row[i][j].x = i;
+                    main_row[i][j].y = j;
                 }
                 else {
                     main_row[i][j] = list_2.get(j);
+                    main_row[i][j].x = i;
+                    main_row[i][j].y = j;
                 }
             }
         }
 
         list_1 = black.subList(0, 8);
         list_2 = black.subList(8, 16);
-        System.out.println("list_1 now = " + list_1);
-        System.out.println("___________________________");
-        System.out.println("list_2 now = " + list_2);
 
         for (int i = 6; i < 8; i++) {
             for (int j = 0; j < 8; j++){
                 if (i == 6) {
                     main_row[i][j] = list_1.get(j);
+                    main_row[i][j].x = i;
+                    main_row[i][j].y = j;
                 }
                 else {
                     main_row[i][j] = list_2.get(j);
+                    main_row[i][j].x = i;
+                    main_row[i][j].y = j;
                 }
             }
         }
 
-        System.out.println(main_row[1][1]);
+        //НЕПОСРЕДСТВЕННО ЦИКЛ
+        String s = "";
+        while (true){
+            sout();
+            System.out.println("White step. Please enter the x of chosen figure ");
+            s = reader.readLine();
+            if (s.equals("exit")) break;
+            int x = Integer.parseInt(s);
+            System.out.println("Please enter the y of chosen figure ");
+            s = reader.readLine();
+            if (s.equals("exit")) break;
+            int y = Integer.parseInt(s);
+            System.out.println(main_row[y-1][x-1].name);
+        }
+    }
+    public static void sout(){
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                System.out.print(main_row[i][j] + " ");
+                try {
+                    System.out.print(main_row[i][j].name + " ");
+                } catch (NullPointerException e){
+                    System.out.print("|_______|");
+                }
             }
             System.out.println();
         }
