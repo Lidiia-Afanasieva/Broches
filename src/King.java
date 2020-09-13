@@ -1,29 +1,39 @@
 public class King extends Main {
     public King(String color){
         if (color.equals("white")){
-            this.name = " W_King ";
-            this.worth = 100000;//МБ ПОНАДОБИТСЯ
+            this.name = "  WKing";
+            this.worth = 100000;
         }
         else if (color.equals("black")){
-            this.name = " B_King ";
-            this.worth = 0;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
+            this.name = "  BKing";
+            this.worth = 0;
         }
     }
-    public void moving(){
-        //НУЖНО ВСТАВИТЬ ОБРЕДЕЛЕНИЕ ТОГО
-        //ПРИБАВЛЯТЬ ИЛИ УБОВЛЯТЬ 1 И ЗАПИЛИТЬ В IF
-        this.x =+ 1;
-        this.y =+ 1;
-    }
-    public void killing(){
-        //
-    }
-    public void dying(){
-        if (this.color == "white"){
-            blackPoint =+ this.worth;
+    public static void moving(Main figure, int x, int y){
+
+        boolean flag;
+        if (x == figure.x + 1 && y == figure.y + 1) flag = true;
+        else if (x == figure.x + 1 && y == figure.y - 1) flag = true;
+        else if (x == figure.x - 1 && y == figure.y + 1) flag = true;
+        else if (x == figure.x - 1 && y == figure.y - 1) flag = true;
+        else if (x == figure.x + 1 && y == figure.y) flag = true;
+        else if (x == figure.x - 1 && y == figure.y) flag = true;
+        else if (x == figure.x && y == figure.y + 1) flag = true;
+        else if (x == figure.x && y == figure.y - 1) flag = true;
+        else flag = false;
+        if (flag == true && main_row[x][y] instanceof Null){
+            main_row[x][y] = main_row[figure.x][figure.y];
+            main_row[figure.x][figure.y] = null;
         }
-        else if (this.color == "black"){
-            whitePoint =+ this.worth;
+        else if (flag == true && main_row[x][y].color.equals("black") && main_row[figure.x][figure.y].color.equals("white")){
+            whitePoint += main_row[x][y].worth;
         }
+        else if (flag == true && main_row[x][y].color.equals("white") && main_row[figure.x][figure.y].color.equals("black")){
+            blackPoint += main_row[x][y].worth;
+        }
+        else {
+            System.out.println("Error in way \n" + "Try one more time ");
+        }
+
     }
 }

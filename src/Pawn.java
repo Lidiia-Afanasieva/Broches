@@ -1,28 +1,36 @@
 public class Pawn extends Main {
     public Pawn(String color){
         if (color.equals("white")){
-            this.name = " W_Pawn ";
-            this.worth = 10;//МБ ПОНАДОБИТСЯ
+            this.name = "  WPawn";
+            this.worth = 10;
         }
         else if (color.equals("black")){
-            this.name = " B_Pawn ";
-            this.worth = 10;//ИБО МОЙ КОРОЛЬ БЕСПОЛЕЗЕН
+            this.name = "  BPawn";
+            this.worth = 10;
         }
     }
-    public void moving(){
-        //НУЖНО ВСТАВИТЬ ОБРЕДЕЛЕНИЕ ТОГО
-        if (this.color == "black") this.y =- 1;
-        else if (this.color == "white") this.y =+ 1;
-    }
-    public void killing(){
-        //
-    }
-    public void dying(){
-        if (this.color == "white"){
-            blackPoint =+ this.worth;
+    public static void moving(Main figure, int x, int y){
+        boolean flag = true;
+        //ТУПИТ. РАЗОБРАТЬ ПОТОМ
+        if (figure.color.equals("white") && x == figure.x && y == figure.y + 1) flag = true;
+        else if (figure.color.equals("white") && x == figure.x + 1&& y == figure.y + 1) flag = true;
+        else if (figure.color.equals("white") && x == figure.x - 1&& y == figure.y + 1) flag = true;
+        else if (figure.color.equals("black") && x == figure.x - 1&& y == figure.y - 1) flag = true;
+        else if (figure.color.equals("black") && x == figure.x + 1&& y == figure.y - 1) flag = true;
+        else if (figure.color.equals("black") && x == figure.x && y == figure.y - 1) flag = true;
+        else flag = false;
+        if (flag == true && main_row[x][y] instanceof Null && ((figure.color.equals("white") && x == figure.x && y == figure.y + 1) || (figure.color.equals("black") && x == figure.x && y == figure.y - 1))){
+            main_row[x][y] = main_row[figure.x][figure.y];
+            main_row[figure.x][figure.y] = null;
         }
-        else if (this.color == "black"){
-            whitePoint =+ this.worth;
+        else if (flag == true && main_row[x][y].color.equals("black") && main_row[figure.x][figure.y].color.equals("white")){
+            whitePoint += main_row[x][y].worth;
+        }
+        else if (flag == true && main_row[x][y].color.equals("white") && main_row[figure.x][figure.y].color.equals("black")){
+            blackPoint += main_row[x][y].worth;
+        }
+        else {
+            System.out.println("Error in way \n" + "Try one more time ");
         }
     }
 }
