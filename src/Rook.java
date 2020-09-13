@@ -3,10 +3,12 @@ public class Rook extends Main {
         if (color.equals("white")){
             this.name = "  WRook";
             this.worth = 30;
+            this.color = "white";
         }
         else if (color.equals("black")){
             this.name = "  BRook";
             this.worth = 30;
+            this.color = "black";
         }
     }
     public static void moving(Main figure, int x, int y){

@@ -3,10 +3,12 @@ public class Queen extends Main {
         if (color.equals("white")){
             this.name = "  WQuen";
             this.worth = 50;
+            this.color = "white";
         }
         else if (color.equals("black")){
             this.name = "  BQuen";
             this.worth = 100000;
+            this.color = "black";
         }
     }
     public static void moving(Main figure, int x, int y){

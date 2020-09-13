@@ -3,10 +3,13 @@ public class Knight extends Main {
         if (color.equals("white")){
             this.name = "  WKnit";
             this.worth = 25;
+            this.color = "white";
+
         }
         else if (color.equals("black")){
             this.name = "  BKnit";
             this.worth = 50000;
+            this.color = "black";
         }
     }
     public static void moving(Main figure, int x, int y) {

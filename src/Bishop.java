@@ -3,10 +3,12 @@ public class Bishop extends Main {
         if (color.equals("white")){
             this.name = " WBishp";
             this.worth = 30;
+            this.color = "white";
         }
         else if (color.equals("black")){
             this.name = " BBishp";
             this.worth = 30;
+            this.color = "black";
         }
     }
     public static void moving(Main figure, int x, int y){
