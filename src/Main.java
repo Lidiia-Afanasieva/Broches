@@ -62,8 +62,8 @@ public class Main {
         Collections.shuffle(white);//случайное перемешивание коллекции
         Collections.shuffle(black);
 
-        List<Main> list_1 = new ArrayList<>();
-        List<Main> list_2 = new ArrayList<>();
+        List<Main> list_1;
+        List<Main> list_2;
         list_1 = white.subList(0, 8);
         list_2 = white.subList(8, 16);
 
@@ -109,7 +109,7 @@ public class Main {
         }
 
         //НЕПОСРЕДСТВЕННО ЦИКЛ
-        String s = "";
+        String s;
         int i = 0;
         while (true){
             sout();
@@ -143,6 +143,7 @@ public class Main {
                 System.out.println("Black is won\n" + "Ojidaemo, Typaya Tb| tR'asoguzka (;3)))");
                 break;
             }
+            i++;
         }
     }
     public static void sout(){

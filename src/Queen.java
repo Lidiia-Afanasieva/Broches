@@ -10,7 +10,7 @@ public class Queen extends Main {
         }
     }
     public static void moving(Main figure, int x, int y){
-        boolean flag = true;
+        boolean flag;
         if (x == figure.x + 1 && y == figure.y + 1 || x == figure.x + 2 && y == figure.y + 2 || x == figure.x + 3 && y == figure.y + 3 || x == figure.x + 4 && y == figure.y + 4 || x == figure.x + 5 && y == figure.y + 5 || x == figure.x + 6 && y == figure.y + 6 || x == figure.x + 7 && y == figure.y + 7) flag = true;
         else if (x == figure.x - 1 && y == figure.y - 1 || x == figure.x - 2 && y == figure.y - 2 || x == figure.x - 3 && y == figure.y - 3 || x == figure.x - 4 && y == figure.y - 4 || x == figure.x - 5 && y == figure.y - 5 || x == figure.x - 6 && y == figure.y - 6 || x == figure.x - 7 && y == figure.y - 7) flag = true;
         else if (x == figure.x + 1 && y == figure.y - 1 || x == figure.x + 2 && y == figure.y - 2 || x == figure.x + 3 && y == figure.y - 3 || x == figure.x + 4 && y == figure.y - 4 || x == figure.x + 5 && y == figure.y - 5 || x == figure.x + 6 && y == figure.y - 6 || x == figure.x + 7 && y == figure.y - 7) flag = true;
@@ -20,14 +20,14 @@ public class Queen extends Main {
         else if ((x == figure.x + 1 || x == figure.x + 2 || x == figure.x + 3 || x == figure.x + 4 || x == figure.x + 5 || x == figure.x + 6 || x == figure.x + 7) && y == figure.y) flag = true;
         else if ((x == figure.x - 1 || x == figure.x - 2 || x == figure.x - 3 || x == figure.x - 4 || x == figure.x - 5 || x == figure.x - 6 || x == figure.x - 7) && y == figure.y) flag = true;
         else flag = false;
-        if (flag == true && main_row[x][y] instanceof Null){
+        if (flag && main_row[x][y] instanceof Null){
             main_row[x][y] = main_row[figure.x][figure.y];
             main_row[figure.x][figure.y] = null;
         }
-        else if (flag == true && main_row[x][y].color.equals("black") && main_row[figure.x][figure.y].color.equals("white")){
+        else if (flag && main_row[x][y].color.equals("black") && main_row[figure.x][figure.y].color.equals("white")){
             whitePoint += main_row[x][y].worth;
         }
-        else if (flag == true && main_row[x][y].color.equals("white") && main_row[figure.x][figure.y].color.equals("black")){
+        else if (flag && main_row[x][y].color.equals("white") && main_row[figure.x][figure.y].color.equals("black")){
             blackPoint += main_row[x][y].worth;
         }
         else {
