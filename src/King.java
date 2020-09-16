@@ -1,4 +1,4 @@
-public class King extends Main {
+public class King extends Figures {
     public King(String color){
         if (color.equals("white")){
             this.name = " WKg ";
@@ -11,7 +11,7 @@ public class King extends Main {
             this.color = "black";
         }
     }
-    public static void moving(Main figure, int x, int y){
+    public static void moving(Figures figure, int x, int y){
 
         boolean flag;
         System.out.println(x + " " + figure.x);
@@ -27,16 +27,19 @@ public class King extends Main {
         else flag = false;
         if (flag && main_row[x][y] instanceof Null){
             main_row[y][x] = main_row[figure.y][figure.x];
-            main_row[figure.y][figure.x] = null;
+            Null Null = new Null();
+            main_row[figure.y][figure.x] = Null;
         }
         else if (flag && main_row[y][x].color.equals("black") && main_row[figure.y][figure.x].color.equals("white")){
             main_row[y][x] = main_row[figure.y][figure.x];
-            main_row[figure.y][figure.x] = null;
+            Null Null = new Null();
+            main_row[figure.y][figure.x] = Null;
             whitePoint += main_row[y][x].worth;
         }
         else if (flag && main_row[y][x].color.equals("white") && main_row[figure.y][figure.x].color.equals("black")){
             main_row[y][x] = main_row[figure.y][figure.x];
-            main_row[figure.y][figure.x] = null;
+            Null Null = new Null();
+            main_row[figure.y][figure.x] = Null;
             blackPoint += main_row[y][x].worth;
         }
         else {

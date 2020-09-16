@@ -1,4 +1,4 @@
-public class Knight extends Main {
+public class Knight extends Figures {
     public Knight(String color){
         if (color.equals("white")){
             this.name = " WKn ";
@@ -12,7 +12,7 @@ public class Knight extends Main {
             this.color = "black";
         }
     }
-    public static void moving(Main figure, int x, int y) {
+    public static void moving(Figures figure, int x, int y) {
         boolean flag;
         if (x == figure.x + 1 && y == figure.y + 2) flag = true;
         else if (x == figure.x - 1 && y == figure.y + 2) flag = true;
@@ -25,18 +25,23 @@ public class Knight extends Main {
         else flag = false;
         if (flag && main_row[y][x] instanceof Null) {
             main_row[y][x] = main_row[figure.y][figure.x];
-            main_row[figure.y][figure.x] = null;
+            Null Null = new Null();
+            main_row[figure.y][figure.x] = Null;
         }
         else if (flag && main_row[y][x].color.equals("black") && main_row[figure.y][figure.x].color.equals("white")) {
             whitePoint += main_row[y][x].worth;
             main_row[y][x] = main_row[figure.y][figure.x];
-            main_row[figure.y][figure.x] = null;
+            Null Null = new Null();
+            main_row[figure.y][figure.x] = Null;
         }
         else if (flag && main_row[y][x].color.equals("white") && main_row[figure.y][figure.x].color.equals("black")) {
             blackPoint += main_row[y][x].worth;
             main_row[y][x] = main_row[figure.y][figure.x];
-            main_row[figure.y][figure.x] = null;
+            Null Null = new Null();
+            main_row[figure.y][figure.x] = Null;
         }
-        else System.out.println("Error in way \n" + "Try one more time ");
+        else {
+            System.out.println("Error in way \n" + "Try one more time ");
+        }
     }
 }

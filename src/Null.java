@@ -1,4 +1,4 @@
-public class Null extends Main {
+public class Null extends Figures {
 
     public Null(){
         this.name = "|___|";

@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Pawn extends Main {
+public class Pawn extends Figures {
     public Pawn(String color){
         if (color.equals("white")){
             this.name = " WPw ";
@@ -14,7 +14,7 @@ public class Pawn extends Main {
         }
     }
 
-    public static void moving(Main figure, int x, int y) throws IOException {// [2][7] fig.x(7)   fig.y(2) 7, 3
+    public static void moving(Figures figure, int x, int y) throws IOException {// [2][7] fig.x(7)   fig.y(2) 7, 3
         boolean flag;
         int i = 0;//for switch-case
 
@@ -43,7 +43,7 @@ public class Pawn extends Main {
             flag = true;
         }
         else {
-            System.out.println("FUCK");
+            //System.out.println("FUCK");
             flag = false;
         }
 
@@ -51,27 +51,33 @@ public class Pawn extends Main {
             case 1 : {
                 if (flag && main_row[y][x] instanceof Null){
                     main_row[y][x] = main_row[figure.y][figure.x];
-                    main_row[figure.y][figure.x] = null;
+                    Null Null = new Null();
+                    main_row[figure.y][figure.x] = Null;
                     break;
                 }
             }
             case 2 : {
                 if (flag) {
-                    whitePoint += main_row[y][x].worth;
+                    System.out.println(y + " " + x);
+                    whitePoint = whitePoint + main_row[y][x].worth;
                     main_row[y][x] = main_row[figure.y][figure.x];
-                    main_row[figure.y][figure.x] = null;
+                    Null Null = new Null();
+                    main_row[figure.y][figure.x] = Null;
                     break;
                 }
             }
             case 3 : {
                 if (flag) {
-                    blackPoint += main_row[y][x].worth;
+                    blackPoint = whitePoint + main_row[y][x].worth;
                     main_row[y][x] = main_row[figure.y][figure.x];
-                    main_row[figure.y][figure.x] = null;
+                    Null Null = new Null();
+                    main_row[figure.y][figure.x] = Null;
                     break;
                 }
             }
-            default : System.out.println("Error in way \n" + "Try one more time ");
+            default : {
+                System.out.println("Error in way \n" + "Try one more time ");
+            }
         }
 
         //CHANGING OF THE PAWN
