@@ -14,15 +14,13 @@ public class Main {
     public static int whitePoint = 0;
     public static int blackPoint = 0;
     public int worth;
+    public static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    public static List<Main> white = new ArrayList<>(16);
+    public static List<Main> black = new ArrayList<>(16);
 
     public static Main[][] main_row = new Main[8][9];
 
     public static void main(String[] args) throws IOException {
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        List<Main> white = new ArrayList<>(16);
-        List<Main> black = new ArrayList<>(16);
 
         King WKing = new King("white");
         white.add(WKing);
@@ -67,6 +65,7 @@ public class Main {
         list_1 = white.subList(0, 8);
         list_2 = white.subList(8, 16);
 
+        //СБОРКА МАССИВА
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j <= 7; j++){
                 if (i == 0) {
@@ -86,7 +85,6 @@ public class Main {
             for (int j = 0; j <= 7; j++){
                 Null nCell = new Null();
                 main_row[i][j] = nCell;
-                //System.out.print(nCell.nValue);
             }
         }
 
@@ -118,23 +116,23 @@ public class Main {
             else System.out.println("Black turn ");
             s = reader.readLine();
             if (s.equals("exit")) break;
-            int xStart = Integer.parseInt(s);
+            int xStart = Integer.parseInt(s) - 1;//is changed to normal view
             System.out.println("Enter y ");
             s = reader.readLine();
             if (s.equals("exit")) break;
-            int yStart = Integer.parseInt(s);
-            System.out.println(main_row[yStart-1][xStart-1].name);
-            main_row[yStart-1][xStart-1].x = yStart - 1;
-            main_row[yStart-1][xStart-1].y = xStart - 1;
+            int yStart = Integer.parseInt(s) - 1;//is changed to normal view
+            System.out.println(main_row[yStart][xStart].name);
+            main_row[yStart][xStart].x = xStart;//[2][7] = 7
+            main_row[yStart][xStart].y = yStart;//[2][7] = 2
             System.out.println("Enter the x of the place, where you want to move this figure ");
             s = reader.readLine();
             if (s.equals("exit")) break;
-            int xFin = Integer.parseInt(s);
+            int xFin = Integer.parseInt(s) - 1;// 7
             System.out.println("Enter y ");
             s = reader.readLine();
             if (s.equals("exit")) break;
-            int yFin = Integer.parseInt(s);
-            moving(main_row[yStart - 1][xStart - 1], yFin - 1, xFin - 1);
+            int yFin = Integer.parseInt(s) - 1;// 3
+            moving(main_row[yStart][xStart], xFin, yFin);// [3][7] , 7, 3
             if (whitePoint >= 100000){
                 System.out.println("White is won\n" + "Idi n@Xyi");
                 break;
@@ -149,9 +147,7 @@ public class Main {
     public static void sout(){
         System.out.print("  ");
         for (int i = 0; i < 8; i++) {
-            System.out.print("   " + (i + 1) + "   ");
-            //if (i % 2 == 0) System.out.print(" ");
-
+            System.out.print("  " + (i + 1) + "  ");
         }
         System.out.println();
         System.out.println();
@@ -169,33 +165,34 @@ public class Main {
             System.out.println();
             System.out.println();
         }
-        System.out.println();
         System.out.print("  ");
         for (int i = 0; i < 8; i++) {
-            System.out.print("   " + (i + 1) + "   ");
-            //if (i % 2 == 0) System.out.print(" ");
+            System.out.print("  " + (i + 1) + "  ");
         }
+        System.out.println("\n");
+        System.out.println("White point is " + whitePoint);
+        System.out.println("Black point is " + blackPoint);
         System.out.println();
     }
 
-    public static void moving(Main figure, int x, int y){
-        if (figure instanceof King){
+    public static void moving(Main figure, int x, int y) throws IOException {
+        if (figure instanceof  King){
             King.moving(figure, x, y);
         }
-        else if (figure instanceof Queen){
+        else if (figure instanceof  Queen){
             Queen.moving(figure, x, y);
         }
-        else if (figure instanceof Pawn){
-            Pawn.moving(figure, x, y);
-        }
-        else if (figure instanceof Rook){
-            Rook.moving(figure, x, y);
-        }
-        else if (figure instanceof Knight){
+        else if (figure instanceof  Knight){
             Knight.moving(figure, x, y);
         }
-        else if (figure instanceof Bishop){
+        else if (figure instanceof  Pawn){
+            Pawn.moving(figure, x, y);
+        }
+        else if (figure instanceof  Bishop){
             Bishop.moving(figure, x, y);
+        }
+        else if (figure instanceof  Rook){
+            Rook.moving(figure, x, y);
         }
         else System.out.println("ERROR");
     }
