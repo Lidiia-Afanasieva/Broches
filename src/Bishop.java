@@ -14,7 +14,7 @@ public class Bishop extends Figures {
     public static void moving(Figures figure, int x, int y){
         boolean flag;
         
-        // надо заменить
+        //  НАДО ЗАМЕНИТЬ
         
         if (x == figure.x + 1 && y == figure.y + 1 || x == figure.x + 2 && y == figure.y + 2 || x == figure.x + 3 && y == figure.y + 3 || x == figure.x + 4 && y == figure.y + 4 || x == figure.x + 5 && y == figure.y + 5 || x == figure.x + 6 && y == figure.y + 6 || x == figure.x + 7 && y == figure.y + 7) flag = true;
         else if (x == figure.x - 1 && y == figure.y - 1 || x == figure.x - 2 && y == figure.y - 2 || x == figure.x - 3 && y == figure.y - 3 || x == figure.x - 4 && y == figure.y - 4 || x == figure.x - 5 && y == figure.y - 5 || x == figure.x - 6 && y == figure.y - 6 || x == figure.x - 7 && y == figure.y - 7) flag = true;
