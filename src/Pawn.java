@@ -14,9 +14,9 @@ public class Pawn extends Figures {
         }
     }
 
-    public static void moving(Figures figure, int x, int y) throws IOException {// [2][7] fig.x(7)   fig.y(2) 7, 3
+    public static void moving(Figures figure, int x, int y) throws IOException { //  [2][7] fig.x(7)   fig.y(2) 7, 3
         boolean flag;
-        int i = 0;//for switch-case
+        int i = 0; //  for switch-case
 
         if (figure.color.equals("white") && figure.x == x && (figure.y + 1 == y || figure.y + 2 == y)) {
             flag = true;
@@ -43,7 +43,7 @@ public class Pawn extends Figures {
             flag = true;
         }
         else {
-            //System.out.println("FUCK");
+
             flag = false;
         }
 
