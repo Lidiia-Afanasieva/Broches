@@ -1,3 +1,5 @@
+// ПУСТАЯ КЛЕТКА
+
 public class Null extends Figures {
 
     public Null(){
