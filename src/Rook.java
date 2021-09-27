@@ -13,6 +13,9 @@ public class Rook extends Figures {
     }
     public static void moving(Figures figure, int x, int y) {
         boolean flag;
+        
+        //  ЛУЧШЕ ИЗМЕНИТЬ
+        
         if (x == figure.x && (y == figure.y + 1 || y == figure.y + 2 || y == figure.y + 3 || y == figure.y + 4 || y == figure.y + 5 || y == figure.y + 6 || y == figure.y + 7))
             flag = true;
         else if (x == figure.x && (y == figure.y - 1 || y == figure.y - 2 || y == figure.y - 3 || y == figure.y - 4 || y == figure.y - 5 || y == figure.y - 6 || y == figure.y - 7))
