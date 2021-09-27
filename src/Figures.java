@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//СОЗДАНИЕ ФИГУР
+//  СОЗДАНИЕ ФИГУР
 public class Figures extends Main {
 
     public int x;
@@ -55,7 +55,7 @@ public class Figures extends Main {
             black.add(BPawn);
         }
 
-        Collections.shuffle(white);//случайное перемешивание коллекции
+        Collections.shuffle(white); //  случайное перемешивание коллекции
         Collections.shuffle(black);
 
         List<Figures> list_1;
@@ -63,7 +63,7 @@ public class Figures extends Main {
         list_1 = white.subList(0, 8);
         list_2 = white.subList(8, 16);
 
-        //СБОРКА МАССИВА
+        //  СБОРКА МАССИВА
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j <= 7; j++){
                 if (i == 0) {
@@ -115,15 +115,15 @@ public class Figures extends Main {
 
         s = reader.readLine();
         if (s.equals("exit")) return 1;
-        int xStart = Integer.parseInt(s) - 1;//is changed to normal view
+        int xStart = Integer.parseInt(s) - 1; //  is changed to normal view
         System.out.println("Enter y ");
         s = reader.readLine();
         if (s.equals("exit")) return 1;
-        int yStart = Integer.parseInt(s) - 1;//is changed to normal view
+        int yStart = Integer.parseInt(s) - 1; //  is changed to normal view
 
         System.out.println(main_row[yStart][xStart].name);
-        main_row[yStart][xStart].x = xStart;//[2][7] = 7
-        main_row[yStart][xStart].y = yStart;//[2][7] = 2
+        main_row[yStart][xStart].x = xStart; //  [2][7] = 7
+        main_row[yStart][xStart].y = yStart; //  [2][7] = 2
         System.out.println("Enter the x of the place, where you want to move this figure ");
 
         s = reader.readLine();
@@ -132,8 +132,8 @@ public class Figures extends Main {
         System.out.println("Enter y ");
         s = reader.readLine();
         if (s.equals("exit")) return 1;
-        int yFin = Integer.parseInt(s) - 1;// 3
-        movingFigure(main_row[yStart][xStart], xFin, yFin);// [3][7] , 7, 3
+        int yFin = Integer.parseInt(s) - 1; //  3
+        movingFigure(main_row[yStart][xStart], xFin, yFin); //  [3][7] , 7, 3
 
         if (whitePoint >= 100000){
             System.out.println("White is won\n" + "Idi n@Xyi");
