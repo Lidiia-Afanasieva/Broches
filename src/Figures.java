@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//СОЗДАНИЕ ФИГУР
 public class Figures extends Main {
 
     public int x;
