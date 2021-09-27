@@ -80,7 +80,7 @@ public class Pawn extends Figures {
             }
         }
 
-        //CHANGING OF THE PAWN
+        //  CHANGING OF THE PAWN
 
         if (figure.color.equals("white") && x == 8){
             System.out.println("\nNow you can change your pawn rank. Write Queen, Rook, Bishop, Knight or Pawn\n");
