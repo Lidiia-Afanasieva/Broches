@@ -10,7 +10,7 @@ public class Main {
 
         Figures.arrayCreating();
 
-        //НЕПОСРЕДСТВЕННО ЦИКЛ
+        //  НЕПОСРЕДСТВЕННО ЦИКЛ
         int flag = 0;
         while (flag == 0){
             sout();
